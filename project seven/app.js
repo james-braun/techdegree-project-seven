@@ -3,6 +3,10 @@ const phrase = document.getElementById('phrase');
 
 let missed = 0;
 
+document.getElementById('overlay').onclick = function() {
+    document.getElementById('overlay').style.display = 'none';
+}
+
 const phrases = ['the quick brown fox', 'now is the time for all brave men', 'four score and seven years ago', 'a stitch in time saves nine', 'i obviously misjudged that one'];
 
 function getRandomPhraseAsArray(arr) {
@@ -36,3 +40,4 @@ function checkLetter(buttonClicked) {
     }
     return letter;
 }
+
