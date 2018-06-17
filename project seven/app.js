@@ -1,7 +1,7 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 
-var missed = 0;
+let missed = 0;
 
 
 
@@ -20,21 +20,21 @@ function addPhraseToDisplay(arr) {
         if (arr[i] != ' ') {
             listItem.setAttribute('class', 'letter');
         } else {
-            listItem.setAttribute('class','space');
+            listItem.setAttribute('class', 'space');
         }
     }
 }
 
-document.querySelector('.btn__reset').onclick = function() {
+document.querySelector('.btn__reset').addEventListener('click', function () {
     document.getElementById('overlay').style.display = 'none';
     missed = 0;
     let lettersInList = document.getElementsByClassName('letter');
     let spacesInList = document.getElementsByClassName('space');
-    for (let i = lettersInList.length; i > 0; i--) {
-        lettersInList[i - 1].remove();
+    for (let i = lettersInList.length - 1; i >= 0; i--) {
+        lettersInList[i].remove();
     }
-    for (let i = spacesInList.length; i > 0; i--) {
-        spacesInList[i - 1].remove();
+    for (let i = spacesInList.length - 1; i >= 0; i--) {
+        spacesInList[i].remove();
     }
     let phraseArray = getRandomPhraseAsArray(phrases);
     addPhraseToDisplay(phraseArray);
@@ -42,7 +42,7 @@ document.querySelector('.btn__reset').onclick = function() {
     for (i = 0; i < buttons.length; i++) {
         buttons[i].disabled = false;
     }
-}
+});
 
 
 function checkLetter(buttonClicked) {
