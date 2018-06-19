@@ -42,7 +42,7 @@ document.querySelector('.btn__reset').addEventListener('click', function () {
         buttons[i].disabled = false;
     }
     tries = document.getElementsByClassName('tries');
-    console.log(tries.length);
+    
     while (tries.length > 0) {
         tries[0].parentNode.removeChild(tries[tries.length - 1]);
     }
@@ -69,24 +69,25 @@ function checkLetter(buttonClicked) {
 
 document.getElementById('qwerty').addEventListener('click', function (event) {
     let letters = document.querySelectorAll('.letter');
-    
-    for (let i = 0; i < letters.length; i++) {
-        if (event.target.textContent == letters[i].textContent) {
-            letters[i].className = 'letter chosen';
+    if (event.target.tagName === "BUTTON") {
+        for (let i = 0; i < letters.length; i++) {
+            if (event.target.textContent == letters[i].textContent) {
+                letters[i].className = 'letter chosen';
+            }
         }
+        event.target.disabled = true;
+        let letterFound = checkLetter(event.target.textContent);
+        if (letterFound == null) {
+            let tries = document.getElementsByClassName('tries');
+            tries[0].parentNode.removeChild(tries[0]);
+            missed++;
+            misses = document.createElement('li');
+            tries[0].parentNode.appendChild(misses);
+            misses.setAttribute('class', 'tries');
+            misses.innerHTML = '<img src="images/lostHeart.png" height="35px" width="30px">'
+        }
+        checkWin();
     }
-    event.target.disabled = true;
-    let letterFound = checkLetter(event.target.textContent);
-    if (letterFound == null) {
-        let tries = document.getElementsByClassName('tries');
-        tries[0].parentNode.removeChild(tries[0]);
-        missed++;
-        misses = document.createElement('li');
-        tries[0].parentNode.appendChild(misses);
-        misses.setAttribute('class', 'tries');
-        misses.innerHTML = '<img src="images/lostHeart.png" height="35px" width="30px">'
-    }
-    checkWin();
 });
 
 function checkWin() {
