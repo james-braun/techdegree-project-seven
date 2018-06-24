@@ -28,13 +28,13 @@
     width: 15px;
   }
 
-  .show {
+  /* .show {
     color: #000;
     background-color: #76CE82;
-  }
+  } */
 
 
-  .chosen {
+  .show {
     background: #445069;
     font-size: 20px;
   }

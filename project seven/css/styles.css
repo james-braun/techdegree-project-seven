@@ -99,10 +99,10 @@ button {
   width: 15px;
 }
 
-.show {
+/* .show {
   color: #000;
   background-color: #76CE82;
-}
+} */
 
 /* Keyboard */
 
@@ -111,7 +111,8 @@ button {
   justify-content: center;
 }
 
-.chosen {
+/* .chosen { */
+.show {
   background: var(--color-neutral);
   border-radius: 5px;
   font-size: var(--font-size-medium);

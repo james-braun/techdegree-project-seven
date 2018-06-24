@@ -40,6 +40,8 @@ document.querySelector('.btn__reset').addEventListener('click', function () {
     let buttons = document.getElementsByTagName('button');
     for (i = 0; i < buttons.length; i++) {
         buttons[i].disabled = false;
+        buttons[i].style.color = "#37474F";
+        buttons[i].style.backgroundColor = '#E5E5E5';
     }
     tries = document.getElementsByClassName('tries');
     
@@ -70,12 +72,9 @@ function checkLetter(buttonClicked) {
 document.getElementById('qwerty').addEventListener('click', function (event) {
     let letters = document.querySelectorAll('.letter');
     if (event.target.tagName === "BUTTON") {
-        for (let i = 0; i < letters.length; i++) {
-            if (event.target.textContent == letters[i].textContent) {
-                letters[i].className = 'letter chosen';
-            }
-        }
         event.target.disabled = true;
+        event.target.style.backgroundColor = "#5b85b7";
+        event.target.style.color = "white";
         let letterFound = checkLetter(event.target.textContent);
         if (letterFound == null) {
             let tries = document.getElementsByClassName('tries');
