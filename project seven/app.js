@@ -1,18 +1,23 @@
+// get all the keys on the keyboard.
 const qwerty = document.getElementById('qwerty');
+
+// get phrase to be guessed.
 const phrase = document.getElementById('phrase');
 
+// number of missed guesses.
 var missed = 0;
 
+// list of phrases to be guessed.
 const phrases = ['the quick brown fox', 'now is the time for all good men', 'four score and seven years ago', 'a stitch in time saves nine', 'i obviously misjudged that one'];
 
 // function returns a rendom phrase.
-function getRandomPhraseAsArray(arr) {
+function getRandomPhraseAsArray(phrases) {
 
     // Get random number.
     let randomPhraseNumber = Math.floor(Math.random() * phrases.length);
 
     // return an array of letters instead of a string.
-    return arr[randomPhraseNumber].split('');
+    return phrases[randomPhraseNumber].split('');
 }
 
 // function displays the the quote to the screen.
@@ -118,18 +123,18 @@ function checkLetter(buttonClicked) {
 }
 
 // if letter clicked.
-document.getElementById('qwerty').addEventListener('click', function (event) {
+document.getElementById('qwerty').addEventListener('click', function () {
 
     // If you actually clicked a button.
-    if (event.target.tagName === "BUTTON") {
+    if (this.tagName === "BUTTON") {
 
         // Disable button.
-        event.target.disabled = true;
-        event.target.style.backgroundColor = "#5b85b7";
-        event.target.style.color = "white";
+        this.disabled = true;
+        this.style.backgroundColor = "#5b85b7";
+        this.style.color = "white";
 
         // check to see if letter is in phrase.
-        let letterFound = checkLetter(event.target.textContent);
+        let letterFound = checkLetter(this.textContent);
 
         // if ketter not in phrase.
         if (letterFound === null) {
