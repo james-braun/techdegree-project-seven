@@ -123,18 +123,18 @@ function checkLetter(buttonClicked) {
 }
 
 // if letter clicked.
-document.getElementById('qwerty').addEventListener('click', function () {
+document.getElementById('qwerty').addEventListener('click', function (event) {
 
     // If you actually clicked a button.
-    if (this.tagName === "BUTTON") {
+    if (event.target.tagName === "BUTTON") {
 
         // Disable button.
-        this.disabled = true;
-        this.style.backgroundColor = "#5b85b7";
-        this.style.color = "white";
+        event.target.disabled = true;
+        event.target.style.backgroundColor = "#5b85b7";
+        event.target.style.color = "white";
 
         // check to see if letter is in phrase.
-        let letterFound = checkLetter(this.textContent);
+        let letterFound = checkLetter(event.target.textContent);
 
         // if ketter not in phrase.
         if (letterFound === null) {
