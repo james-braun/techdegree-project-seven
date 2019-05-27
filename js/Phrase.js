@@ -57,7 +57,7 @@ class Phrase {
         // for every element in "matchElement" if "letter" matches then show letter.
         for (var i = 0; i < matchElement.length; i += 1) {
             if (letter.toUpperCase() === matchElement[i].innerHTML.toUpperCase()) {
-                matchElement[i].className = 'show letter ' + letter;
+                matchElement[i].className = 'show letter';
             }
         }
     }

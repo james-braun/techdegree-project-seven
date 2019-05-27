@@ -28,15 +28,15 @@ document.getElementById('btn__reset').addEventListener('click', function () {
     document.addEventListener('keyup', key); 
 });
 
-// on mouse click pass the contents of the button clicked to handleInteractions().
-button = function (event) {
+// use named function so that removeEventListner() can be called on function.
+button = (event) => {
     if (event.target.tagName === "BUTTON") {
         game.handleInteractions(event.target.textContent);
     }
 }
 
-// on key press pass the contents of the button pressed to handleInteractions().
-key = function (event) {
+// use named function so that removeEventListner() can be called on function.
+key = (event) => {
     if (/[a-z]/.test(event.key)) {
         game.handleInteractions(event.key);
     }
